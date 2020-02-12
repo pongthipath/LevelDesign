@@ -33,7 +33,11 @@ public class Stat : MonoBehaviour
     {
         //----------------- Stamina -------------------
         //StaminaBarLength.maxValue = maxSP;
-        StaminaBarLength.value = maxSP;
+        //TODO: Clear if later
+        if (StaminaBarLength)
+        {
+            StaminaBarLength.value = maxSP;
+        }
 
         SP_decreaseRate = 5;
         SP_increaseRate = 5;
@@ -48,11 +52,17 @@ public class Stat : MonoBehaviour
     {
         // ----------------- Health System --------------
         maxHP = 100;
-        HPBar.maxValue = maxHP;
-        HPBar.value = maxHP;
+        if (HPBar)
+        {
+            HPBar.maxValue = maxHP;
+            HPBar.value = maxHP;
+        }
         IsHPBelowZero();
         //----------------- Stamina -------------------
-        StartCoroutine(StaminaStats());
+        if (StaminaBarLength)
+        {
+            StartCoroutine(StaminaStats());
+        }
     }
     // Update is called once per frame
     private void Update()

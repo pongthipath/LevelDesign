@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrdBehavior : MonoBehaviour
+public class OrbShooting : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject hand;
@@ -27,7 +27,7 @@ public class OrdBehavior : MonoBehaviour
             GameObject attack = Instantiate(bullet, hand.transform.position, hand.transform.rotation) as GameObject;
             Rigidbody rigidbody = attack.GetComponent<Rigidbody>();
             rigidbody.AddForce(hand.transform.forward * 500f, ForceMode.Impulse);
-            Destroy(attack, 1f);
+            //Destroy(attack, 1f);
         }
     }
 }

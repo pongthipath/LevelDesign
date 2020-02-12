@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DragonGemBehavior : MonoBehaviour
 {
-    public int RgemCount = 0;
-    public int BgemCount = 0;
+    public static int RgemCount = 0;
+    public static int BgemCount = 0;
 
     void OnTriggerEnter(Collider collider)
     {
@@ -14,14 +14,14 @@ public class DragonGemBehavior : MonoBehaviour
             RgemCount += 50;
             gameObject.SetActive(false);
             //StartCoroutine(DisableObjectAfterSeconds(3.0f));
-            Debug.Log("Red team gets 50 gems");
+            Debug.Log("Red team gets 50 gems : total gems = " + RgemCount);
         }
         if (collider.tag == "BluePlayer")
         {
             BgemCount += 50;
             gameObject.SetActive(false);
             //StartCoroutine(DisableObjectAfterSeconds(3.0f));
-            Debug.Log("Blue team gets 50 gems");
+            Debug.Log("Blue team gets 50 gems : total gems = "+ BgemCount);
         }
        
         
