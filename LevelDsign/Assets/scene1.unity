@@ -535,7 +535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &94457378
 PrefabInstance:
@@ -2109,6 +2109,7 @@ GameObject:
   - component: {fileID: 332953189}
   - component: {fileID: 332953188}
   - component: {fileID: 332953187}
+  - component: {fileID: 332953192}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Untagged
@@ -2181,7 +2182,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332953186}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2224,6 +2225,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &332953192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332953186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc26b5d5da9e9143b5077a0e53b7783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitType: 2
 --- !u!4 &332953193
 Transform:
   m_ObjectHideFlags: 0
@@ -2237,7 +2251,7 @@ Transform:
   m_Children:
   - {fileID: 1003841600}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &341111243
 PrefabInstance:
@@ -2471,7 +2485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0cc0769ed891845a40c99b94d12dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 1759386397}
+  ShopButton: {fileID: 1759386397}
   RedGate: {fileID: 2041996774}
   BlueGate: {fileID: 2035414055}
 --- !u!1001 &388126309
@@ -7463,110 +7477,6 @@ Transform:
   m_Father: {fileID: 623762011}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &998826194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 998826197}
-  - component: {fileID: 998826195}
-  - component: {fileID: 998826196}
-  - component: {fileID: 998826198}
-  - component: {fileID: 998826199}
-  m_Layer: 0
-  m_Name: Boss
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!54 &998826195
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998826194}
-  serializedVersion: 2
-  m_Mass: 200
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &998826196
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998826194}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!4 &998826197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998826194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 101.75, y: 100.31, z: 72.8}
-  m_LocalScale: {x: 0.8, y: 2, z: 0.8}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &998826198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998826194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f58c4c7f858994f9bb7298e03d0162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curHP: 200
-  maxHP: 2000
-  maxBAR: 100
-  HealthBarLength: 0
-  Gem: {fileID: 580144832}
-  Boss: {fileID: 0}
-  DestroyOnDeath: 0
-  respawnTime: 5
---- !u!114 &998826199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998826194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982479df2f5e41342a34d9e8e4e199ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRad: 10
-  attkRad: 8
-  moveSpeed: 3
-  enemyLimitRange: 13
-  Poison: {fileID: 1174807308}
-  Bullet: {fileID: 0}
-  Player: {fileID: 7291841226409258257}
-  TurnBase: {fileID: 303342750}
-  BulletSpeed: 2
 --- !u!4 &1002961966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793,
@@ -8883,12 +8793,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 642149f34e4af9f4f887302cdaf09c46, type: 3}
---- !u!1 &1174807308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1598034248799334, guid: 5fb125617629fb64386fdafd5ec4a612,
-    type: 3}
-  m_PrefabInstance: {fileID: 312390173}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1180307058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 52e6b57ceaa10a243a1421ca9ae2f346,
@@ -13451,7 +13355,7 @@ RectTransform:
   - {fileID: 1037424662}
   - {fileID: 382163389}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15068,7 +14972,7 @@ Transform:
   m_Children:
   - {fileID: 303342751}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2079548563
 BoxCollider:

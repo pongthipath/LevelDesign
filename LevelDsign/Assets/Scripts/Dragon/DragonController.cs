@@ -36,7 +36,6 @@ public class DragonController : MonoBehaviour
 			// Move towards the target
 			transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
 			FaceTarget();
-			Debug.Log(distance2);
 			Poison.transform.gameObject.SetActive(true);
 			// If within attacking distance
 			if (distance <= attkRad)
