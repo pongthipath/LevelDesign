@@ -11,8 +11,8 @@ public class SkillBehavior : MonoBehaviour
 
     //public delegate void OrbsContainer(string skillName);
     //public static event OrbsContainer EventOrbsContainer;
-    public delegate void OrbDamage(float damage);
-    public static event OrbDamage EventOrbDamage;
+    //public delegate void OrbDamage(float damage);
+    //public static event OrbDamage EventOrbDamage;
     public delegate void OrbShoot(string skillname);
     public static event OrbShoot EventOrbShoot;
 
@@ -153,30 +153,27 @@ public class SkillBehavior : MonoBehaviour
     void UsingSpell()
     {
         Debug.Log("Using Skill ------!@#!@%!%");
-        if (EventOrbDamage != null)
+        if (Input.GetButtonDown("SkillCall"))
         {
-            Debug.Log("EventOrbDamage  mai chai null !!!!!!!!");
-            if (Input.GetButtonDown("SkillCall"))
-            {
-                Debug.Log("Fire Skill : Skill id = " + spellIdOrder[0] + ", damage = " + SpellNameToDamage(spellIdOrder[0]));
-                if (spellIdOrder[0] == SkillId.noskill && spellIdOrder[1] != SkillId.noskill)
-                {
-                    damage = SpellNameToDamage(spellIdOrder[1]);
-                }
-                else
-                {
-                    damage = SpellNameToDamage(spellIdOrder[0]);
-                }
-                if (damage != 0)
-                {
-                    // Do damage from skill slot 0
-                    //EventOrbDamage(damage);
-                }
-                // Remember skill from slot 0 to 1
-                spellIdOrder[1] = spellIdOrder[0]; 
-            }
-            // clear combo on use skill button
-            OrbQueue.Clear();
+        Debug.Log("Fire Skill : Skill id = " + spellIdOrder[0] + ", damage = " + SpellNameToDamage(spellIdOrder[0]));
+        if (spellIdOrder[0] == SkillId.noskill && spellIdOrder[1] != SkillId.noskill)
+        {
+            damage = SpellNameToDamage(spellIdOrder[1]);
+        }
+        else
+        {
+            damage = SpellNameToDamage(spellIdOrder[0]);
+        }
+        //if (damage != 0)
+        //{
+        //        Do damage from skill slot 0
+        //        EventOrbDamage(damage);
+        //}
+        // Remember skill from slot 0 to 1
+        spellIdOrder[1] = spellIdOrder[0]; 
+        }
+        // clear combo on use skill button
+        OrbQueue.Clear();
         }
 
         float SpellNameToDamage(SkillId spellName)
@@ -208,5 +205,5 @@ public class SkillBehavior : MonoBehaviour
                     return 0;
             }
         }
-    }
 }
+

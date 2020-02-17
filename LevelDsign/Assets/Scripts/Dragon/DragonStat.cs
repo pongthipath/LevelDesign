@@ -55,6 +55,7 @@ public class DragonStat : MonoBehaviour
         DestroyOnDeath = false;
         //Rend.enabled = true;
         RespawnPoint.MoveBack();
+        curHP = maxHP;
     }
     private void OnDisable()
     {

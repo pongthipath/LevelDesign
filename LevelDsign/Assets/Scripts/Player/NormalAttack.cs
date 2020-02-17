@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NormalAttack : MonoBehaviour
 {
-    public float AttkForce = 100f;
+    public float AttkRange = 50f;
     public float AttDamage = 50f;
     public Camera CamFPS;
     public Camera CamTPS;
+    DamagePopup popupDamage;
+    DragonController getPosition;
+
     private void Start()
     {
-        
+        popupDamage = GetComponent<DamagePopup>();
+        getPosition = GetComponent<DragonController>();
     }
     private void Update()
     {
@@ -24,30 +29,28 @@ public class NormalAttack : MonoBehaviour
         RaycastHit hitTPS, hitFPS;
         if (PlayerController.camMode == 0)
         {
-            if(Physics.Raycast(CamTPS.transform.position, CamTPS.transform.forward, out hitTPS, AttkForce))
+            if(Physics.Raycast(CamTPS.transform.position, CamTPS.transform.forward, out hitTPS, AttkRange))
             {
                 Debug.Log(hitTPS.transform.name + " TPS");
 
-                DragonStat boss = hitTPS.transform.GetComponent<DragonStat>();
-                if (boss != null)
+                DragonStat bossTPS = hitTPS.transform.GetComponent<DragonStat>();
+                if (bossTPS != null)
                 {
-                    boss.ChangeHP(AttDamage);
+                    bossTPS.ChangeHP(AttDamage);
+                    //popupDamage.Create(getPosition.DragonPos, AttDamage);
                 }
-                //GameObject attack = Instantiate(bullet, hand.transform.position, hand.transform.rotation) as GameObject;
-                //Rigidbody rigidbody = attack.GetComponent<Rigidbody>();
-                //rigidbody.AddForce(hand.transform.forward * AttkForce, ForceMode.Impulse);
-                //Destroy(attack, 1f);
             }
         }
         if (PlayerController.camMode == 1)
         {
-            if (Physics.Raycast(CamFPS.transform.position, CamFPS.transform.forward, out hitFPS, AttkForce))
+            if (Physics.Raycast(CamFPS.transform.position, CamFPS.transform.forward, out hitFPS, AttkRange))
             {
                 Debug.Log(hitFPS.transform.name + " FPS");
-                DragonStat boss = hitFPS.transform.GetComponent<DragonStat>();
-                if (boss != null)
+                DragonStat bossFPS = hitFPS.transform.GetComponent<DragonStat>();
+                if (bossFPS != null)
                 {
-                    boss.ChangeHP(AttDamage);
+                    bossFPS.ChangeHP(AttDamage);
+                    //popupDamage.Create(getPosition.DragonPos, AttDamage);
                 }
             }
         }

@@ -15,7 +15,7 @@ public class DragonController : MonoBehaviour
 	public GameObject TurnBase;
 	DragonStat deadCheck;
 	public float BulletSpeed = 2.0f;//Enter the Speed of the Bullet from the Component Inspector.
-
+	public Vector3 DragonPos;
 	void Start()
 	{
 		target = Player.transform;
@@ -23,10 +23,12 @@ public class DragonController : MonoBehaviour
 		Bullet.transform.gameObject.SetActive(false);
 		Poison.transform.gameObject.SetActive(false);
 		deadCheck = GetComponent<DragonStat>();
+		
 	}
 	// Update is called once per frame
 	void Update()
 	{
+		DragonPos = transform.position;
 		// Distance to the target
 		float distance = Vector3.Distance(target.position, transform.position);
 		float distance2 = Vector3.Distance(enemy.position, transform.position);
