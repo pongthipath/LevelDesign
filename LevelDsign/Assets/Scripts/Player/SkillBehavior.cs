@@ -9,10 +9,12 @@ public class SkillBehavior : MonoBehaviour
         noskill, skill_1, skill_2, skill_3, skill_4, skill_5, skill_6, skill_7, skill_8, skill_9, skill_10
     }
 
-    public delegate void OrbsContainer(string skillName);
+    //public delegate void OrbsContainer(string skillName);
+    //public static event OrbsContainer EventOrbsContainer;
     public delegate void OrbDamage(float damage);
-    public static event OrbsContainer EventOrbsContainer;
     public static event OrbDamage EventOrbDamage;
+    public delegate void OrbShoot(string skillname);
+    public static event OrbShoot EventOrbShoot;
 
     public int[] Orbs = new int[3];
     Queue<int> OrbQueue = new Queue<int>();
@@ -65,7 +67,11 @@ public class SkillBehavior : MonoBehaviour
         if (Input.GetButtonDown("SkillCall"))
         {
             UsingSpell();
+        }
 
+        if (Input.GetMouseButtonDown(1) && spellIdOrder[0] != SkillId.noskill)
+        {
+            EventOrbShoot(spellIdOrder[0].ToString());
         }
     }
     void SearchSpell(int orb0, int orb1, int orb2)
@@ -161,15 +167,13 @@ public class SkillBehavior : MonoBehaviour
                 {
                     damage = SpellNameToDamage(spellIdOrder[0]);
                 }
-
                 if (damage != 0)
                 {
                     // Do damage from skill slot 0
-                    EventOrbDamage(damage);
+                    //EventOrbDamage(damage);
                 }
                 // Remember skill from slot 0 to 1
                 spellIdOrder[1] = spellIdOrder[0]; 
-                //EventOrbsContainer(spellIdOrder[0].ToString());
             }
             // clear combo on use skill button
             OrbQueue.Clear();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6559439923179564101}
   - component: {fileID: 2865613814291149345}
   - component: {fileID: 3233295499077070331}
-  - component: {fileID: -6090247673330560048}
+  - component: {fileID: 8085347976006730564}
   m_Layer: 0
   m_Name: PlayerBullet
   m_TagString: Untagged
@@ -110,17 +110,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-6090247673330560048
+--- !u!114 &8085347976006730564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975182138776173697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a700cc8aa7faaa4ebeaa031f6ebda8f, type: 3}
+  m_Script: {fileID: 11500000, guid: e1db49969f466404498c105be99b1bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  hand: {fileID: 0}

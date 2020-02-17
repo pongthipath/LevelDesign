@@ -17,21 +17,15 @@ public class DragonStat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SkillBehavior.EventOrbDamage += ChangeHP;
+        OrbBullet.EventOrbDamage += ChangeHP;
         Gem.transform.gameObject.SetActive(false);
         Boss.transform.gameObject.SetActive(true);
         RespawnPoint = gameObject.GetComponent<DragonController>();
         //Rend = gameObject.GetComponent<Renderer>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void ChangeHP(float Change)
     {
-        Debug.Log(Change +" from delegate");
+        //Debug.Log(Change +" from delegate");
         curHP -= Change;
         if (curHP > maxHP)
         {
@@ -61,6 +55,10 @@ public class DragonStat : MonoBehaviour
         DestroyOnDeath = false;
         //Rend.enabled = true;
         RespawnPoint.MoveBack();
+    }
+    private void OnDisable()
+    {
+        OrbBullet.EventOrbDamage -= ChangeHP;
     }
 }
 
