@@ -21,12 +21,12 @@ public class PlayerController : MonoBehaviour
 
     //camera 
     public Transform playerCam, centerPoint, player1stView;
-    private float mouseX, mouseY, mouseY2, zoomSpeed = 2, mouseYPosition = 1.25f, mouseYPosition2 = 1.5f, mouseV;
-    public float TurnX, TurnY;
+    float TurnX, TurnY, JoyTurnX, JoyTurnY;
 
     public GameObject thirdCam;
     public GameObject firstCam;
     public static int camMode;
+    public GameObject ResetPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //toggle crouch
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetButton("Crouching"))
         {
             if (isCrouching)
             {             
@@ -83,13 +83,13 @@ public class PlayerController : MonoBehaviour
         if(isCrouching)
         {
             //Crouching controls animation
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetButton("Horizontal"))
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isRunning", false);
                 anim.SetBool("isIdle", false);
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetButton("Vertical"))
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isRunning", false);
@@ -102,20 +102,20 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isIdle", true);
             }
         }
-        else if(Input.GetKey(KeyCode.LeftShift))
+        else if(Input.GetButton("Running"))
         {
             
             speed = runSpeed;
             
 
             //running controls
-            if(Input.GetKey(KeyCode.W))
+            if(Input.GetButton("Horizontal"))
             {
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isRunning", true);
                 anim.SetBool("isIdle", false);
             }
-            else if(Input.GetKey(KeyCode.S))
+            else if(Input.GetButton("Vertical"))
             {
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isRunning", true);
@@ -132,13 +132,13 @@ public class PlayerController : MonoBehaviour
         {
             speed = walkSpeed;
             //Standing controls
-            if(Input.GetKey(KeyCode.W))
+            if(Input.GetButton("Horizontal"))
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isRunning", false);
                 anim.SetBool("isIdle", false);
             }
-            else if(Input.GetKey(KeyCode.S))
+            else if(Input.GetButton("Vertical"))
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isRunning", false);
@@ -151,13 +151,21 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isIdle", true);
             }
         }
-        //camera
+        //camera mouse
         //3rd cam
         TurnX += Input.GetAxis("Mouse X") * 5;
         //TurnX = Mathf.Clamp(TurnX, -90, 90);
         TurnY += Input.GetAxis("Mouse Y") * 5;
         TurnY = Mathf.Clamp(TurnY, -30, 40);
         transform.localEulerAngles = new Vector3(-TurnY, TurnX, 0);
+
+        //camera joystick
+        //3rd cam
+        JoyTurnX += Input.GetAxis("JoyCameraXAxis") * 5;
+        //TurnX = Mathf.Clamp(TurnX, -90, 90);
+        JoyTurnY += Input.GetAxis("JoyCameraYAxis") * 5;
+        JoyTurnY = Mathf.Clamp(JoyTurnY, -20, 30);
+        transform.localEulerAngles = new Vector3(-JoyTurnY, JoyTurnX, 0);
 
         if (Input.GetKey(KeyCode.LeftAlt))
         {
@@ -188,6 +196,10 @@ public class PlayerController : MonoBehaviour
                 camMode += 1;
             }
             StartCoroutine(CamChange());
+        }
+        if (Input.GetButtonDown("ResetPos"))
+        {
+            transform.position = ResetPosition.transform.position;
         }
     }
 
