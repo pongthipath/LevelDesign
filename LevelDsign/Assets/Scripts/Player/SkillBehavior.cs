@@ -71,7 +71,7 @@ public class SkillBehavior : MonoBehaviour
 
         if (Input.GetButtonDown("UseSkill") && spellIdOrder[0] != SkillId.noskill)
         {
-            //EventOrbShoot(spellIdOrder[0].ToString());
+            EventOrbShoot(spellIdOrder[0].ToString());
         }
     }
     void SearchSpell(int orb0, int orb1, int orb2)
