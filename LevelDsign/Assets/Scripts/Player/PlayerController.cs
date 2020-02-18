@@ -159,13 +159,13 @@ public class PlayerController : MonoBehaviour
         TurnY = Mathf.Clamp(TurnY, -30, 40);
         transform.localEulerAngles = new Vector3(-TurnY, TurnX, 0);
 
-        //camera joystick
-        //3rd cam
-        JoyTurnX += Input.GetAxis("JoyCameraXAxis") * 5;
-        //TurnX = Mathf.Clamp(TurnX, -90, 90);
-        JoyTurnY += Input.GetAxis("JoyCameraYAxis") * 5;
-        JoyTurnY = Mathf.Clamp(JoyTurnY, -20, 30);
-        transform.localEulerAngles = new Vector3(-JoyTurnY, JoyTurnX, 0);
+        ////camera joystick
+        ////3rd cam
+        //JoyTurnX += Input.GetAxis("JoyCameraXAxis") * 5;
+        ////TurnX = Mathf.Clamp(TurnX, -90, 90);
+        //JoyTurnY += Input.GetAxis("JoyCameraYAxis") * 5;
+        //JoyTurnY = Mathf.Clamp(JoyTurnY, -20, 30);
+        //transform.localEulerAngles = new Vector3(-JoyTurnY, JoyTurnX, 0);
 
         if (Input.GetKey(KeyCode.LeftAlt))
         {
